@@ -447,7 +447,7 @@ document.addEventListener("click", (event) => {
 
       })
 
-      
+      procent()
       save()
 
    }

@@ -447,6 +447,9 @@ document.addEventListener("click", (event) => {
 
       })
 
+      
+      save()
+
    }
 
 

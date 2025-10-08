@@ -74,6 +74,23 @@ function procent() {
          wallet.querySelector('[data-stat-procent]').innerText = `${(Number(statUsdt.innerText) / sum * 100).toFixed(1)}%`
       }
    })
+   
+   
+   
+   
+   const parent = document.querySelector('[data-stat-body]')
+const items = Array.from(parent.querySelectorAll('[data-stat-wallet]'))
+
+items
+  .sort((a, b) => {
+    const numA = +a.querySelector('[data-stat-uah]').textContent
+    const numB = +b.querySelector('[data-stat-uah]').textContent
+    return numB - numA // выше больше
+  })
+  .forEach(el => parent.appendChild(el))
+   
+   
+
 
 }
 
@@ -313,6 +330,11 @@ document.addEventListener("click", (event) => {
          targ.closest('[data-group]').remove()
        }
 
+if (targ.closest("[data-stat-info-cross]")) {
+
+         targ.closest('[data-stat-info-wallet]').remove()
+       }
+
 
    if (targ.closest("[data-stat-title]")) {
       const name = prompt('название')
@@ -407,11 +429,12 @@ document.addEventListener("click", (event) => {
          usdtNow.innerText = (num / 41 + Number(usdtNow.innerText)).toFixed(1)
          uahNow.innerText = (num + Number(uahNow.innerText)).toFixed(0)
 
-         document.querySelector('[data-stat-info]').insertAdjacentHTML('beforeend', `
+         document.querySelector('[data-stat-info]').insertAdjacentHTML('afterbegin', `
             <div data-stat-info-wallet>
                <div data-stat-info-name>${name.innerText}</div>
                <div data-stat-info-usdt>${(Number(num) / 41).toFixed(1)}</div>
                <div data-stat-info-uah>${num}</div>
+               <div data-stat-info-cross>x</div
             </div>
          `)
 
@@ -456,6 +479,5 @@ document.addEventListener("click", (event) => {
 }
 
 )
-
 
 

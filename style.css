@@ -154,6 +154,7 @@ button {
 
 [data-name] {
   width: 100px;
+  
 }
 
 [data-num] {
@@ -221,6 +222,8 @@ button {
    color: #474C53;
 }
 
+
+
 [data-stat-ballance-uah],[data-stat-ballance-usdt]{
   
 }
@@ -228,12 +231,14 @@ button {
 [data-stat-name] {
   width: 100px;
 
+
 }
 [data-stat-usdt] {
 
 }
 [data-stat-add] {
- width: 20px;
+ width: 10px;
+ 
 }
 [data-stat-uah] {
 
@@ -337,4 +342,16 @@ button {
    /* margin-bottom: 10px; */
    padding-bottom: 10px;
    border-bottom: 1px solid #171A21;
+} 
+
+[data-stat-info-wallet] {
+  
+}
+[data-stat-info-cross] {
+  margin-left: auto;
+  color: #474C53;
+}
+
+[data-stat-procent] {
+  margin-left: auto;
 }

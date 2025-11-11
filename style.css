@@ -31,6 +31,8 @@ body {
   background-color: #171A21;
   
   border-radius: 5px;
+
+  position: relative;
 }
 [data-wallet]:not(:last-child) {
   margin-bottom: 5px;
@@ -354,4 +356,17 @@ button {
 
 [data-stat-procent] {
   margin-left: auto;
+}
+
+
+[data-wallet-cross] {
+   position: absolute;
+   top: -10px;
+   right: 0;
+       background-color: transparent;
+    display: flex;
+    align-items: center;
+    height: 25px;
+    color: #474C53;
+    font-size: 14px;
 }

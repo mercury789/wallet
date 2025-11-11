@@ -100,6 +100,10 @@ document.addEventListener("click", (event) => {
 
    const targ = event.target
 
+       if (targ.closest("[data-wallet-cross]")) {
+         targ.closest("[data-wallet-cross]").closest("[data-wallet]").remove()
+       }
+
        if (targ.closest("[data-procent]")) {
 
            let procent = Number(prompt('процент депа'))
@@ -163,6 +167,9 @@ document.addEventListener("click", (event) => {
             <div data-pnl-procent>0.00%</div>
 
             <div data-pnl-start>${Number(num).toFixed(2)}</div>
+
+            <div data-wallet-cross>x</div>
+
          </div>
            `)
            }

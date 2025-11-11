@@ -1,0 +1,357 @@
+* {
+  font-family: Sans-Serif;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 14px;
+  padding-top: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  color: #fcfcfc;
+  background-color: #000;
+}
+
+[data-groups] {
+  
+}
+
+[data-wallet] {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 5px;
+  background-color: #171A21;
+  
+  border-radius: 5px;
+}
+[data-wallet]:not(:last-child) {
+  margin-bottom: 5px;
+}
+[data-order]:not(:last-child) {
+  
+}
+[data-order] {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  
+  padding: 5px;
+  background-color: #171A21;
+  
+  margin-bottom: 5px;
+  
+  border-radius: 5px;
+}
+
+button {
+  
+  background-color: #171A21;
+  padding: 5px;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 14px;
+  
+  border: none;
+  outline: none;
+  color: #474C53;
+}
+
+[data-group] {
+  border-radius: 5px;
+  position: relative;
+  
+  
+}
+[data-group]:not(:last-child) {
+  margin-bottom: 5px;
+  
+}
+
+[data-tag] {
+  border-radius: 5px;
+  
+  margin-bottom: 5px;
+}
+
+[data-group-body] {
+  border-radius: 5px;
+}
+
+[data-orders] {
+  
+  border-radius: 5px;
+}
+
+[data-add] {
+  position: absolute;
+  top: 0px;
+  right: 30px;
+}
+
+[data-cross] {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+}
+
+[data-group-add] {
+  position: fixed;
+  top: 50%;
+  right: 10px;
+  color: #474C53;
+  background-color: #1C2029;
+}
+
+[data-add],[data-cross] {
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  
+  height: 25px;
+  color: #474C53;
+}
+
+[data-procent] {
+  color: #474C53;
+  background-color: transparent;
+}
+
+
+[data-top] {
+  border-bottom: 1px solid #171A21;
+  
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+
+
+[data-order-pnl] {
+  color: #474C53;
+}
+
+[data-reset] {
+  position: fixed;
+  top: 60%;
+  right: 10px;
+}
+
+[data-order-procent] {
+  color: #474C53;
+}
+
+[data-label] {
+  color: #474C53;
+  margin-bottom: 5px;
+}
+
+[data-name] {
+  width: 100px;
+  
+}
+
+[data-num] {
+  width: 50px;
+}
+
+[data-order-name] {
+  width: 100px;
+}
+
+[data-order-num] {
+  width: 50px;
+}
+
+[data-tag] {
+  color: #474C53;
+}
+
+[data-pnl] {
+  color: #474C53;
+}
+
+[data-pnl-procent] {
+  color: #474C53;
+}
+
+
+[data-pnl-start] {
+  color: #474C53;
+}
+
+/* ========================================== */
+
+[data-stat-ballance] {
+   display: flex;
+   align-items: center;
+   gap: 10px;
+   margin-bottom: 10px;
+}
+
+[data-stat-title] {
+   color: #474C53;
+   margin-bottom: 5px;
+}
+
+[data-stat-wallet] {
+   display: flex;
+   align-items: center;
+
+   padding: 10px;
+   background-color: #171A21;
+
+     gap: 10px;
+  border-radius: 5px;
+
+
+  position: relative;
+}
+
+[data-stat-wallet]:not(:last-child) {
+   margin-bottom: 5px;
+}
+
+[data-stat-add],[data-stat-uah],[data-stat-procent],[data-stat-ballance-uah] {
+   color: #474C53;
+}
+
+
+
+[data-stat-ballance-uah],[data-stat-ballance-usdt]{
+  
+}
+
+[data-stat-name] {
+  width: 100px;
+
+
+}
+[data-stat-usdt] {
+
+}
+[data-stat-add] {
+ width: 10px;
+ 
+}
+[data-stat-uah] {
+
+}
+[data-stat-cross] {
+   color: #474C53;
+
+   position: absolute;
+   top: 0px;
+   right: 0px;
+   transform: translateY(-50%);
+}
+
+[data-stat-progress-usdt] {
+   display: flex;
+   align-items: center;
+     /* gap: 2.5px; */
+
+}
+[data-stat-progress-uah] {
+   display: flex;
+   align-items: center;
+     /* gap: 2.5px; */
+   color: #474C53;
+
+
+}
+[data-stat-ballance-progress-usdt] {
+   display: flex;
+   align-items: center;
+     /* gap: 2.5px; */
+
+}
+[data-stat-ballance-progress-uah] {
+   display: flex;
+   align-items: center;
+     /* gap: 2.5px; */
+   color: #474C53;
+
+
+}
+
+[data-tab-btns] {
+   display: flex;
+   align-items: center;
+   gap: 10px;
+   justify-content: center;
+
+   margin-bottom: 10px;
+}
+
+
+[data-tab-btn] {
+   color: #474C53;
+
+}
+[data-tab-btn]._active {
+   color: #fff;
+
+}
+
+[data-stat] {
+   display: none;
+}
+[data-stat]._active {
+   display: block;
+}
+[data-crypto] {
+   display: none;
+}
+[data-crypto]._active {
+   display: block;
+}
+
+
+
+[data-stat-info-wallet] {
+   display: flex;
+   align-items: center;
+   gap: 10px;
+
+   padding: 10px;
+  border-radius: 5px;
+  position: relative;
+
+}
+
+[data-stat-info-name] {
+   width: 100px;
+}
+
+[data-stat-info-usdt] {
+   
+}
+[data-stat-info-uah] {
+   color: #474C53;
+}
+
+
+[data-stat-body] {
+   /* margin-bottom: 10px; */
+   padding-bottom: 10px;
+   border-bottom: 1px solid #171A21;
+} 
+
+[data-stat-info-wallet] {
+  
+}
+[data-stat-info-cross] {
+  margin-left: auto;
+  color: #474C53;
+}
+
+[data-stat-procent] {
+  margin-left: auto;
+}

@@ -25,7 +25,7 @@ function save() {
 if (get('body')) {
    document.querySelector('[data-body]').innerHTML = get('body')
 
-  
+
 }
 
 function procent() {
@@ -74,22 +74,22 @@ function procent() {
          wallet.querySelector('[data-stat-procent]').innerText = `${(Number(statUsdt.innerText) / sum * 100).toFixed(1)}%`
       }
    })
-   
-   
-   
-   
-   const parent = document.querySelector('[data-stat-body]')
-const items = Array.from(parent.querySelectorAll('[data-stat-wallet]'))
 
-items
-  .sort((a, b) => {
-    const numA = +a.querySelector('[data-stat-uah]').textContent
-    const numB = +b.querySelector('[data-stat-uah]').textContent
-    return numB - numA // выше больше
-  })
-  .forEach(el => parent.appendChild(el))
-   
-   
+
+
+
+   const parent = document.querySelector('[data-stat-body]')
+   const items = Array.from(parent.querySelectorAll('[data-stat-wallet]'))
+
+   items
+      .sort((a, b) => {
+         const numA = +a.querySelector('[data-stat-uah]').textContent
+         const numB = +b.querySelector('[data-stat-uah]').textContent
+         return numB - numA // выше больше
+      })
+      .forEach(el => parent.appendChild(el))
+
+
 
 
 }
@@ -100,37 +100,37 @@ document.addEventListener("click", (event) => {
 
    const targ = event.target
 
-       if (targ.closest("[data-wallet-cross]")) {
-         targ.closest("[data-wallet-cross]").closest("[data-wallet]").remove()
-       }
+   if (targ.closest("[data-wallet-cross]")) {
+      targ.closest("[data-wallet-cross]").closest("[data-wallet]").remove()
+   }
 
-       if (targ.closest("[data-procent]")) {
+   if (targ.closest("[data-procent]")) {
 
-           let procent = Number(prompt('процент депа'))
+      let procent = Number(prompt('процент депа'))
 
-           const wallet = targ.closest('[data-wallet]')
+      const wallet = targ.closest('[data-wallet]')
 
-          const walletNum = Number(wallet.querySelector('[data-num]').innerText)
+      const walletNum = Number(wallet.querySelector('[data-num]').innerText)
 
-           const result = procent / 100 * walletNum
+      const result = procent / 100 * walletNum
 
-         console.log(result)
+      console.log(result)
 
-        if (procent) {
-            const check = confirm (result.toFixed(2))
+      if (procent) {
+         const check = confirm(result.toFixed(2))
 
-            if (check) {
-              const orders = document.querySelector('[data-orders]')
+         if (check) {
+            const orders = document.querySelector('[data-orders]')
 
-              const wallet = targ.closest('[data-wallet]')
-              const name = wallet.querySelector('[data-name]')
-              const num = wallet.querySelector('[data-num]')
+            const wallet = targ.closest('[data-wallet]')
+            const name = wallet.querySelector('[data-name]')
+            const num = wallet.querySelector('[data-num]')
 
-              const calc = Number(num.innerText) - result
-              num.innerText = calc.toFixed(2)
+            const calc = Number(num.innerText) - result
+            num.innerText = calc.toFixed(2)
 
 
-                orders.insertAdjacentHTML('beforeend', `
+            orders.insertAdjacentHTML('beforeend', `
            <div data-order>
             <div data-order-name>${name.innerText}</div>
             <div data-order-num>${result.toFixed(2)}</div>
@@ -140,24 +140,24 @@ document.addEventListener("click", (event) => {
 
          </div>
            `)
-            }
-        }
+         }
+      }
 
-        save()
+      save()
 
-       }
+   }
 
 
-       if (targ.closest("[data-add]")) {
+   if (targ.closest("[data-add]")) {
 
-           const name = prompt('название')
-           const num = prompt('балланс')
+      const name = prompt('название')
+      const num = prompt('балланс')
 
-           const groupBody = targ.closest('[data-group]').querySelector('[data-group-body]')
+      const groupBody = targ.closest('[data-group]').querySelector('[data-group-body]')
 
-           if (name && num) {
+      if (name && num) {
 
-             groupBody.insertAdjacentHTML('beforeend', `
+         groupBody.insertAdjacentHTML('beforeend', `
            <div data-wallet>
             <div data-name>${name}</div>
             <div data-num>${Number(num).toFixed(2)}</div>
@@ -172,130 +172,125 @@ document.addEventListener("click", (event) => {
 
          </div>
            `)
-           }
+      }
 
 
-       save()
+      save()
 
-       }
+   }
 
-       if (targ.closest("[data-name]")) {
-         const name = targ.innerText
+   if (targ.closest("[data-name]")) {
+      const name = targ.innerText
 
-         const text = prompt('название', name)
+      const text = prompt('название', name)
 
-         if (text) {
-           targ.innerText = text
-         } 
+      if (text) {
+         targ.innerText = text
+      }
 
-         save()
+      save()
 
-       }
+   }
 
-       if (targ.closest("[data-num]")) {
-         const num = targ.innerText
+   if (targ.closest("[data-num]")) {
+      let text = prompt('баланс', targ.innerText);
+      if (text !== null && text.trim() !== '' && !isNaN(text)) {
+         targ.innerText = (+text).toFixed(2);
+         save();
+      }
+   }
 
-         const text = Number(prompt('балланс', num))
+   if (targ.closest("[data-pnl-start]")) {
+      const num = targ.innerText
 
-         if (text || text === 0) {
-           targ.innerText = text.toFixed(2)
-         } 
+      const text = Number(prompt('старт', num))
 
-         save()
+      if (text) {
+         targ.innerText = text.toFixed(2)
+      }
 
-       }
+      save()
 
-       if (targ.closest("[data-pnl-start]")) {
-         const num = targ.innerText
+   }
 
-         const text = Number(prompt('старт', num))
+   if (targ.closest("[data-order-pnl]")) {
 
-         if (text) {
-           targ.innerText = text.toFixed(2)
-         } 
+      const data = Number(prompt('количество'))
 
-         save()
-
-       }
-
-       if (targ.closest("[data-order-pnl]")) {
-
-         const data = Number(prompt('количество'))
-
-         const order = targ.closest('[data-order]')
+      const order = targ.closest('[data-order]')
 
 
-         const name = order.querySelector('[data-order-name]')
-              const num = order.querySelector('[data-order-num]')
+      const name = order.querySelector('[data-order-name]')
+      const num = order.querySelector('[data-order-num]')
 
 
 
 
-         const walletAll = document.querySelectorAll('[data-wallet]')
+      const walletAll = document.querySelectorAll('[data-wallet]')
 
-           walletAll.forEach((e) => {
+      walletAll.forEach((e) => {
 
-             const eName = e.querySelector('[data-name]')
-            const eNum = e.querySelector('[data-num]')
-            const ePnlStart = e.querySelector('[data-pnl-start]')
-             const ePnlProcent = e.querySelector('[data-pnl-procent]')
+         const eName = e.querySelector('[data-name]')
+         const eNum = e.querySelector('[data-num]')
+         const ePnlStart = e.querySelector('[data-pnl-start]')
+         const ePnlProcent = e.querySelector('[data-pnl-procent]')
 
-            if (name.innerText === eName.innerText) {
+         if (name.innerText === eName.innerText) {
 
-              if (data >= 0) {
-                console.log('profit')
-                // profit
-                const sum = (Number(num.innerText) + data + Number(eNum.innerText)).toFixed(2)
+            if (data >= 0) {
+               console.log('profit')
+               // profit
+               const sum = (Number(num.innerText) + data + Number(eNum.innerText)).toFixed(2)
 
-                  eNum.innerText = sum
+               eNum.innerText = sum
 
-                  const check = ((sum - Number(ePnlStart.innerText)) / Number(ePnlStart.innerText) * 100)
+               const check = ((sum - Number(ePnlStart.innerText)) / Number(ePnlStart.innerText) * 100)
 
-                  console.log(check)
+               console.log(check)
 
-                  if (check >= 0) {
-                    console.log('green')
-                    ePnlProcent.style.color = 'green'
-                  } else {
-                    console.log('red')
-                    ePnlProcent.style.color = 'red'
-                  }
+               if (check >= 0) {
+                  console.log('green')
+                  ePnlProcent.style.color = 'green'
+               } else {
+                  console.log('red')
+                  ePnlProcent.style.color = 'red'
+               }
 
-                  ePnlProcent.innerText = `${check.toFixed(2)}%`
+               ePnlProcent.innerText = `${check.toFixed(2)}%`
 
-             } else {
+            } else {
                console.log('lose')
-                  // lose
-                  const sum = Number(num.innerText) + Number(eNum.innerText) + data
+               // lose
+               const sum = Number(num.innerText) + Number(eNum.innerText) + data
 
-                  eNum.innerText = sum
+               eNum.innerText = sum
 
-                  const check = ((sum - Number(ePnlStart.innerText)) / Number(ePnlStart.innerText) * 100)
+               const check = ((sum - Number(ePnlStart.innerText)) / Number(ePnlStart.innerText) * 100)
 
-                  ePnlProcent.innerText = `${check.toFixed(2)}%`
+               ePnlProcent.innerText = `${check.toFixed(2)}%`
 
 
-                  if (check >= 0) {
-                    ePnlProcent.style.color = 'green'
-                  } else {
-                    ePnlProcent.style.color = 'red'
-                  }
+               if (check >= 0) {
+                  ePnlProcent.style.color = 'green'
+               } else {
+                  ePnlProcent.style.color = 'red'
                }
             }
+         }
 
-           })
+      })
 
-              order.remove()
+      order.remove()
 
-              save()
-       }
+      save()
+   }
 
-       if (targ.closest("[data-group-add]")) {
-         const x = prompt('название')
+   if (targ.closest("[data-group-add]")) {
+      const x = prompt('название')
 
-         const groups = document.querySelector('[data-groups]')
+      const groups = document.querySelector('[data-groups]')
 
-       if (x) {
+      if (x) {
 
 
 
@@ -311,42 +306,42 @@ document.addEventListener("click", (event) => {
            </div>
          `)
 
-       }
+      }
 
-         save()
-       }
+      save()
+   }
 
-       if (targ.closest("[data-tag]")) {
-           const name = targ.innerText
+   if (targ.closest("[data-tag]")) {
+      const name = targ.innerText
 
-         const text = prompt('название', name)
+      const text = prompt('название', name)
 
-         if (text) {
-           targ.innerText = text
-         } 
+      if (text) {
+         targ.innerText = text
+      }
 
-         save()
-       }
+      save()
+   }
 
    if (targ.closest("[data-reset]")) {
       clear()
    }
 
-       if (targ.closest("[data-cross]")) {
+   if (targ.closest("[data-cross]")) {
 
-         targ.closest('[data-group]').remove()
-       }
+      targ.closest('[data-group]').remove()
+   }
 
-if (targ.closest("[data-stat-info-cross]")) {
+   if (targ.closest("[data-stat-info-cross]")) {
 
-         targ.closest('[data-stat-info-wallet]').remove()
-       }
+      targ.closest('[data-stat-info-wallet]').remove()
+   }
 
 
    if (targ.closest("[data-stat-title]")) {
       const name = prompt('название')
       const num = prompt('балик')
- 
+
       if (name) {
          if (num) {
             document.querySelector('[data-stat-body]').insertAdjacentHTML('beforeend', `
